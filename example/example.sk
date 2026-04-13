@@ -1,0 +1,49 @@
+command /akcesoria:
+    trigger:
+        open chest inventory with 1 row named "Akcesoria" to player
+        loop 9 times:
+            set slot (loop-number - 1) of player's current inventory to {akcesoria::%uuid of player%::%loop-number - 1%}
+
+on join:
+    updateAglet(player)
+
+on inventory click:
+    if name of event-inventory is "Akcesoria":
+
+        if click type is left mouse button with shift or right mouse button with shift:
+            cancel event
+
+        if clicked inventory is event-inventory:
+            if player's cursor slot is air:
+                stop
+
+        if clicked inventory is not player's inventory:
+            set {_item} to player's cursor slot
+ 
+            if {_item} is set:
+                if {_item} is not oak planks named "Aglet":
+                    cancel event
+                    send "To nie jest akcesorium" to player
+
+on inventory close:
+    if name of event-inventory is "Akcesoria":
+        loop 9 times:
+            set {akcesoria::%uuid of player%::%loop-number - 1%} to slot (loop-number - 1) of event-inventory
+ 
+        updateAglet(player)
+
+function updateAglet(p: player):
+    set {_has} to false
+
+    loop 9 times:
+        if {akcesoria::%uuid of {_p}%::%loop-number - 1%} is oak planks named "Aglet":
+            set {_has} to true
+
+    if {_has} is true:
+        set {_p}'s generic movement speed attribute to 0.12
+    else:
+        set {_p}'s generic movement speed attribute to 0.1
+
+command /aglet:
+    trigger:
+        give player oak planks named "Aglet"
