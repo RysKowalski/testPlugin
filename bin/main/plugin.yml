@@ -5,3 +5,8 @@ description: An example plugin
 author: PaperMC
 website: https://papermc.io
 api-version: "1.21.11"
+
+commands:
+  hello:
+    description: WTH do you want
+    usage: /hello
