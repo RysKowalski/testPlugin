@@ -19,9 +19,14 @@ public class AgletCommand implements CommandExecutor {
       @NotNull Command command,
       @NotNull String label,
       @NotNull String[] args) {
-    Player player = (Player) sender;
+    if (!(sender instanceof Player player)) {
+      sender.sendMessage("This command can only be used by players.");
+      return true;
+    }
+
     ItemStack item = new ItemStack(Material.OAK_LOG);
     item.setAmount(1);
+
     ItemMeta meta = item.getItemMeta();
     if (meta != null) {
       meta.displayName(Component.text("Aglet"));
