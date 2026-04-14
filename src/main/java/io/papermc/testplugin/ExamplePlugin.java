@@ -12,11 +12,10 @@ import org.bukkit.potion.PotionEffectType;
 import org.joml.Math;
 
 import io.papermc.testplugin.commands.AgletCommand;
-import io.papermc.testplugin.commands.HelloCommand;
 
 // all players have 9 saved accessories that are items
 //
-// function updateAglet()
+// function updateAglet(Player player)
 // checks if saved accessories have oak plank named "Aglet"
 // if yes: set generic movement speed of player to 0.12
 // else: reset generic movement speed
@@ -38,19 +37,13 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
   @Override
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(this, this);
-    getCommand("hello").setExecutor(new HelloCommand());
+    AccessoriesManager manager = new AccessoriesManager(this);
     getCommand("aglet").setExecutor(new AgletCommand());
   }
 
-  @EventHandler
-  public void onPlayerJoin(PlayerJoinEvent event) {
-    event.getPlayer().sendMessage(Component.text("Hello, " + event.getPlayer().getName() + "!"));
-    PotionEffect effect = new PotionEffect(
-        PotionEffectType.SPEED,
-        200,
-        1);
-    event.getPlayer().addPotionEffect(effect);
-  }
+  // @EventHandler
+  // public void onPlayerJoin(PlayerJoinEvent event) {
+  // }
 
   @EventHandler
   public void onPlayerMove(PlayerMoveEvent event) {

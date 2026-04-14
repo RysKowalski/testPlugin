@@ -10,3 +10,6 @@ commands:
   hello:
     description: WTH do you want
     usage: /hello
+  aglet:
+    description: give user oak log named Aglet
+    usage: /aglet
