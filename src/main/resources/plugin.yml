@@ -7,9 +7,9 @@ website: https://papermc.io
 api-version: "1.21.11"
 
 commands:
-  hello:
-    description: WTH do you want
-    usage: /hello
   aglet:
     description: give user oak log named Aglet
     usage: /aglet
+  akcesoria:
+    description: open Akcesoria gui
+    usage: /akcesoria

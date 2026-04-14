@@ -13,6 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.joml.Math;
 
 import io.papermc.testplugin.commands.AgletCommand;
+import io.papermc.testplugin.commands.AkcesoriaCommand;
 
 // DONE all players have 9 saved accessories that are items
 //
@@ -45,6 +46,7 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
     this.accessoriesService = new AccessoriesService(manager);
 
     getCommand("aglet").setExecutor(new AgletCommand());
+    getCommand("akcesoria").setExecutor(new AkcesoriaCommand());
   }
 
   @EventHandler
