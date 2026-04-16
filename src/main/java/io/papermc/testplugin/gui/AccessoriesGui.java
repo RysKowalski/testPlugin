@@ -44,6 +44,25 @@ public final class AccessoriesGui {
 
   public void handleClick(InventoryClickEvent event) {
     // TODO: all click logic here
+
+    Inventory clicked = event.getClickedInventory();
+    if (clicked == null)
+      return;
+
+    if (event.isShiftClick()) {
+      event.setCancelled(true);
+      return;
+    }
+
+    if (clicked.equals(event.getView().getTopInventory())) {
+
+      ItemStack cursor = event.getCursor();
+
+      if (cursor == null || cursor.getType().isAir()) {
+        event.setCancelled(true);
+        return;
+      }
+    }
   }
 
   public void handleDrag(InventoryDragEvent event) {
