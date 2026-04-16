@@ -1,15 +1,15 @@
-name: ExamplePlugin
+name: AccessoriesPlugin
 version: 1.0.0
 main: io.papermc.testplugin.ExamplePlugin
-description: An example plugin
-author: PaperMC
+description: An accessories plugin
+author: RysKowalski
 website: https://papermc.io
 api-version: "1.21.11"
 
 commands:
-  hello:
-    description: WTH do you want
-    usage: /hello
   aglet:
     description: give user oak log named Aglet
     usage: /aglet
+  akcesoria:
+    description: open Akcesoria gui
+    usage: /akcesoria

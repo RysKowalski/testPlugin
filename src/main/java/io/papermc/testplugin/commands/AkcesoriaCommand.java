@@ -10,7 +10,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
+import io.papermc.testplugin.gui.AccessoriesGui;
+
 public class AkcesoriaCommand implements CommandExecutor {
+
+  private final AccessoriesGui gui;
+
+  public AkcesoriaCommand(AccessoriesGui gui) {
+    this.gui = gui;
+  }
 
   @Override
   public boolean onCommand(
@@ -24,11 +32,7 @@ public class AkcesoriaCommand implements CommandExecutor {
       return true;
     }
 
-    Inventory gui = Bukkit.createInventory(
-        null,
-        9,
-        Component.text("Akcesoria"));
-    player.openInventory(gui);
+    player.openInventory(gui.create(player));
     return true;
   }
 }

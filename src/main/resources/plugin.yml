@@ -1,8 +1,8 @@
-name: ExamplePlugin
+name: AccessoriesPlugin
 version: 1.0.0
 main: io.papermc.testplugin.ExamplePlugin
-description: An example plugin
-author: PaperMC
+description: An accessories plugin
+author: RysKowalski
 website: https://papermc.io
 api-version: "1.21.11"
 
