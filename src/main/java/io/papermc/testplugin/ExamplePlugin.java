@@ -14,6 +14,7 @@ import org.joml.Math;
 
 import io.papermc.testplugin.commands.AgletCommand;
 import io.papermc.testplugin.commands.AkcesoriaCommand;
+import io.papermc.testplugin.gui.AccessoriesGui;
 
 // DONE all players have 9 saved accessories that are items
 //
@@ -44,9 +45,10 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
 
     AccessoriesManager manager = new AccessoriesManager(this);
     this.accessoriesService = new AccessoriesService(manager);
+    AccessoriesGui accessoriesGui = new AccessoriesGui(manager, this.accessoriesService);
 
     getCommand("aglet").setExecutor(new AgletCommand());
-    getCommand("akcesoria").setExecutor(new AkcesoriaCommand());
+    getCommand("akcesoria").setExecutor(new AkcesoriaCommand(accessoriesGui));
   }
 
   @EventHandler
